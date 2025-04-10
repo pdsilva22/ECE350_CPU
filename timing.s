@@ -1,8 +1,7 @@
 main:
 	addi $s0, $0, 10
 	jal read_mem
-	add $s1, $v0, $0
-	add $a0, $s1, $s0
+	add $a0, $v0, $0
 	jal write_mem
 	j main
 
