@@ -7,7 +7,7 @@
 set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports clk_100mhz]
 create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports clk_100mhz]
 #create_clock -period 32.000 -name sys_clk_pin -waveform {0.000 16.000} -add [get_ports clk_100mhz]
-
+#^line above is used for the purpose of running timing reports in vivado for verification, for actual deployment need pll
 
 
 ##Switches
