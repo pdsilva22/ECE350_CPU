@@ -54,6 +54,7 @@ module Wrapper (
      );
     
     assign io_read = (memAddr == 32'd4096) ? 1'b1: 1'b0;
+
     assign io_write = (memAddr == 32'd4097) ? 1'b1: 1'b0;
      always @(negedge clock) begin
            SW_M <= SW;
@@ -67,6 +68,7 @@ module Wrapper (
                LED <= LED;
            end
        end
+	   
     assign q_dmem = (io_read == 1'b1) ? SW_Q : memDataOut;
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "timing";
