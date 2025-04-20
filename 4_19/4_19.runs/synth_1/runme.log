@@ -1,0 +1,505 @@
+
+*** Running vivado
+    with args -log Wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Wrapper.tcl
+
+
+
+****** Vivado v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+
+source Wrapper.tcl -notrace
+Command: synth_design -top Wrapper -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 7704
+WARNING: [Synth 8-6901] identifier 'bypassALU_addi2_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:187]
+WARNING: [Synth 8-6901] identifier 'bypassALU_addiR_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:187]
+WARNING: [Synth 8-6901] identifier 'bypassALU_Raddi' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:187]
+WARNING: [Synth 8-6901] identifier 'bypassALU_RR_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:187]
+WARNING: [Synth 8-6901] identifier 'bypassALU_addi_branch_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:187]
+WARNING: [Synth 8-6901] identifier 'bypassALU_addiR_rt' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:188]
+WARNING: [Synth 8-6901] identifier 'bypassALU_RR_rt' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:188]
+WARNING: [Synth 8-6901] identifier 'bypassALU_addi_jr' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:188]
+WARNING: [Synth 8-6901] identifier 'memBypass2_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:189]
+WARNING: [Synth 8-6901] identifier 'memBypass_loadBeforeR_rs_2' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:190]
+WARNING: [Synth 8-6901] identifier 'bypassDMEM_D_addi_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:191]
+WARNING: [Synth 8-6901] identifier 'bypassDMEM_D_addiR_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:191]
+WARNING: [Synth 8-6901] identifier 'bypassDMEM_D_RR_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:191]
+WARNING: [Synth 8-6901] identifier 'xm_O_in_temp' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:193]
+WARNING: [Synth 8-6901] identifier 'memBypass_loadBeforeR_rt_2' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:196]
+WARNING: [Synth 8-6901] identifier 'memBypass_Rtype_sw_2' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:197]
+WARNING: [Synth 8-6901] identifier 'bypassDMEM_D_addiR_rt' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:198]
+WARNING: [Synth 8-6901] identifier 'bypassDMEM_D_RR_rt' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:198]
+WARNING: [Synth 8-6901] identifier 'bypassDMEM_D_addiB_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:198]
+WARNING: [Synth 8-6901] identifier 'xm_O_in_temp' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:200]
+WARNING: [Synth 8-6901] identifier 'bypassALU_setxbex' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:201]
+WARNING: [Synth 8-6901] identifier 'multDivRDY' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:255]
+WARNING: [Synth 8-6901] identifier 'bypassDMEM_lw_jr' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:271]
+WARNING: [Synth 8-6901] identifier 'memBypass_loadBeforeR_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:280]
+WARNING: [Synth 8-6901] identifier 'memBypass_loadBeforeR_rt' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:281]
+WARNING: [Synth 8-6901] identifier 'memBypass_rd_load' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:312]
+WARNING: [Synth 8-6901] identifier 'memBypass_lwsw_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:313]
+WARNING: [Synth 8-6901] identifier 'memBypass_lwlw_rs' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:313]
+WARNING: [Synth 8-6901] identifier 'memBypass_rd_store' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:315]
+WARNING: [Synth 8-6901] identifier 'memBypass_lwsw_rd' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:316]
+WARNING: [Synth 8-6901] identifier 'clk_50mhz' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:36]
+WARNING: [Synth 8-6901] identifier 'clk_out_ps2' is used before its declaration [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:37]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1329.355 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'Wrapper' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:27]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [C:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.runs/synth_1/.Xil/Vivado-308-P2-02/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (1#1) [C:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.runs/synth_1/.Xil/Vivado-308-P2-02/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_1' [C:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.runs/synth_1/.Xil/Vivado-308-P2-02/realtime/clk_wiz_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_1' (2#1) [C:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.runs/synth_1/.Xil/Vivado-308-P2-02/realtime/clk_wiz_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'processor' [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:20]
+INFO: [Synth 8-6157] synthesizing module 'reg32' [C:/Users/pds27/Desktop/ECE350_CPU/reg.v:1]
+INFO: [Synth 8-6157] synthesizing module 'dffe_ref' [C:/Users/pds27/Desktop/ECE350_CPU/dffe_ref.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'dffe_ref' (3#1) [C:/Users/pds27/Desktop/ECE350_CPU/dffe_ref.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'reg32' (4#1) [C:/Users/pds27/Desktop/ECE350_CPU/reg.v:1]
+INFO: [Synth 8-6157] synthesizing module 'alu' [C:/Users/pds27/Desktop/ECE350_CPU/alu.v:1]
+INFO: [Synth 8-6157] synthesizing module 'cla_32' [C:/Users/pds27/Desktop/ECE350_CPU/cla_32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'cla_8' [C:/Users/pds27/Desktop/ECE350_CPU/cla_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'cla_8' (5#1) [C:/Users/pds27/Desktop/ECE350_CPU/cla_8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'cla_32' (6#1) [C:/Users/pds27/Desktop/ECE350_CPU/cla_32.v:1]
+INFO: [Synth 8-6157] synthesizing module 'checkOverflow' [C:/Users/pds27/Desktop/ECE350_CPU/checkOverflow.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'checkOverflow' (7#1) [C:/Users/pds27/Desktop/ECE350_CPU/checkOverflow.v:1]
+INFO: [Synth 8-6157] synthesizing module 'checkNotEqual' [C:/Users/pds27/Desktop/ECE350_CPU/checkNotEqual.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'checkNotEqual' (8#1) [C:/Users/pds27/Desktop/ECE350_CPU/checkNotEqual.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sll' [C:/Users/pds27/Desktop/ECE350_CPU/sll.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SLL1' [C:/Users/pds27/Desktop/ECE350_CPU/SLL1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SLL1' (9#1) [C:/Users/pds27/Desktop/ECE350_CPU/SLL1.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux2' [C:/Users/pds27/Desktop/ECE350_CPU/mux2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux2' (10#1) [C:/Users/pds27/Desktop/ECE350_CPU/mux2.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SLL2' [C:/Users/pds27/Desktop/ECE350_CPU/SLL2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SLL2' (11#1) [C:/Users/pds27/Desktop/ECE350_CPU/SLL2.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SLL4' [C:/Users/pds27/Desktop/ECE350_CPU/SLL4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SLL4' (12#1) [C:/Users/pds27/Desktop/ECE350_CPU/SLL4.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SLL8' [C:/Users/pds27/Desktop/ECE350_CPU/SLL8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SLL8' (13#1) [C:/Users/pds27/Desktop/ECE350_CPU/SLL8.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SLL16' [C:/Users/pds27/Desktop/ECE350_CPU/SLL16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SLL16' (14#1) [C:/Users/pds27/Desktop/ECE350_CPU/SLL16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sll' (15#1) [C:/Users/pds27/Desktop/ECE350_CPU/sll.v:1]
+INFO: [Synth 8-6157] synthesizing module 'sra' [C:/Users/pds27/Desktop/ECE350_CPU/sra.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SRA1' [C:/Users/pds27/Desktop/ECE350_CPU/SRA1.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SRA1' (16#1) [C:/Users/pds27/Desktop/ECE350_CPU/SRA1.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SRA2' [C:/Users/pds27/Desktop/ECE350_CPU/SRA2.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SRA2' (17#1) [C:/Users/pds27/Desktop/ECE350_CPU/SRA2.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SRA4' [C:/Users/pds27/Desktop/ECE350_CPU/SRA4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SRA4' (18#1) [C:/Users/pds27/Desktop/ECE350_CPU/SRA4.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SRA8' [C:/Users/pds27/Desktop/ECE350_CPU/SRA8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SRA8' (19#1) [C:/Users/pds27/Desktop/ECE350_CPU/SRA8.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SRA16' [C:/Users/pds27/Desktop/ECE350_CPU/SRA16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'SRA16' (20#1) [C:/Users/pds27/Desktop/ECE350_CPU/SRA16.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'sra' (21#1) [C:/Users/pds27/Desktop/ECE350_CPU/sra.v:1]
+INFO: [Synth 8-6157] synthesizing module 'logicalA' [C:/Users/pds27/Desktop/ECE350_CPU/logicalA.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'logicalA' (22#1) [C:/Users/pds27/Desktop/ECE350_CPU/logicalA.v:1]
+INFO: [Synth 8-6157] synthesizing module 'logicalO' [C:/Users/pds27/Desktop/ECE350_CPU/logicalO.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'logicalO' (23#1) [C:/Users/pds27/Desktop/ECE350_CPU/logicalO.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux8' [C:/Users/pds27/Desktop/ECE350_CPU/mux8.v:1]
+INFO: [Synth 8-6157] synthesizing module 'mux4' [C:/Users/pds27/Desktop/ECE350_CPU/mux4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux4' (24#1) [C:/Users/pds27/Desktop/ECE350_CPU/mux4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'mux8' (25#1) [C:/Users/pds27/Desktop/ECE350_CPU/mux8.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'alu' (26#1) [C:/Users/pds27/Desktop/ECE350_CPU/alu.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'processor' (27#1) [C:/Users/pds27/Desktop/ECE350_CPU/processor.v:20]
+INFO: [Synth 8-6157] synthesizing module 'ROM' [C:/Users/pds27/Desktop/ECE350_CPU/ROM.v:2]
+	Parameter MEMFILE bound to: 80'b01110100011010010110110101101001011011100110011100101110011011010110010101101101 
+INFO: [Synth 8-3876] $readmem data file 'timing.mem' is read successfully [C:/Users/pds27/Desktop/ECE350_CPU/ROM.v:11]
+INFO: [Synth 8-6155] done synthesizing module 'ROM' (28#1) [C:/Users/pds27/Desktop/ECE350_CPU/ROM.v:2]
+INFO: [Synth 8-6157] synthesizing module 'regfile' [C:/Users/pds27/Desktop/ECE350_CPU/regfile.v:1]
+INFO: [Synth 8-6157] synthesizing module 'tristate' [C:/Users/pds27/Desktop/ECE350_CPU/tristate.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'tristate' (29#1) [C:/Users/pds27/Desktop/ECE350_CPU/tristate.v:1]
+INFO: [Synth 8-6157] synthesizing module 'decoder32' [C:/Users/pds27/Desktop/ECE350_CPU/decoder32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'decoder32' (30#1) [C:/Users/pds27/Desktop/ECE350_CPU/decoder32.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'regfile' (31#1) [C:/Users/pds27/Desktop/ECE350_CPU/regfile.v:1]
+INFO: [Synth 8-6157] synthesizing module 'RAM' [C:/Users/pds27/Desktop/ECE350_CPU/RAM.v:2]
+INFO: [Synth 8-6155] done synthesizing module 'RAM' (32#1) [C:/Users/pds27/Desktop/ECE350_CPU/RAM.v:2]
+INFO: [Synth 8-6157] synthesizing module 'AudioController' [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:358]
+INFO: [Synth 8-3876] $readmem data file 'PS2_to_freq.mem' is read successfully [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:392]
+INFO: [Synth 8-3876] $readmem data file 'sine_lut.mem' is read successfully [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:478]
+INFO: [Synth 8-638] synthesizing module 'Ps2Interface' [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/Ps2Interface.vhd:180]
+INFO: [Synth 8-256] done synthesizing module 'Ps2Interface' (33#1) [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/Ps2Interface.vhd:180]
+WARNING: [Synth 8-6104] Input port 'ps2_clk' has an internal driver [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:381]
+WARNING: [Synth 8-7071] port 'tx_data' of module 'Ps2Interface' is unconnected for instance 'ps2' [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:380]
+WARNING: [Synth 8-7071] port 'write_data' of module 'Ps2Interface' is unconnected for instance 'ps2' [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:380]
+WARNING: [Synth 8-7071] port 'busy' of module 'Ps2Interface' is unconnected for instance 'ps2' [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:380]
+WARNING: [Synth 8-7071] port 'err' of module 'Ps2Interface' is unconnected for instance 'ps2' [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:380]
+WARNING: [Synth 8-7023] instance 'ps2' of module 'Ps2Interface' has 10 connections declared, but only 6 given [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:380]
+Reason is one or more of the following :
+	1: RAM is sensitive to asynchronous reset signal. this RTL style is not supported. 
+RAM "delay_buf_reg" dissolved into registers
+INFO: [Synth 8-6155] done synthesizing module 'AudioController' (34#1) [C:/Users/pds27/Desktop/ECE350_CPU/audio_synth/AudioController.v:358]
+WARNING: [Synth 8-7071] port 'micData' of module 'AudioController' is unconnected for instance 'audio' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+WARNING: [Synth 8-7071] port 'switches' of module 'AudioController' is unconnected for instance 'audio' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+WARNING: [Synth 8-7071] port 'micClk' of module 'AudioController' is unconnected for instance 'audio' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+WARNING: [Synth 8-7071] port 'chSel' of module 'AudioController' is unconnected for instance 'audio' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+WARNING: [Synth 8-7071] port 'audioEn' of module 'AudioController' is unconnected for instance 'audio' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+WARNING: [Synth 8-7071] port 'ps2_data' of module 'AudioController' is unconnected for instance 'audio' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+WARNING: [Synth 8-7071] port 'reset' of module 'AudioController' is unconnected for instance 'audio' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+WARNING: [Synth 8-7023] instance 'audio' of module 'AudioController' has 10 connections declared, but only 3 given [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:128]
+INFO: [Synth 8-6155] done synthesizing module 'Wrapper' (35#1) [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:27]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 1341.684 ; gain = 12.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1341.684 ; gain = 12.328
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1341.684 ; gain = 12.328
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.247 . Memory (MB): peak = 1341.684 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [c:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'pll'
+Finished Parsing XDC File [c:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.gen/sources_1/ip/clk_wiz_0/clk_wiz_0/clk_wiz_0_in_context.xdc] for cell 'pll'
+Parsing XDC File [c:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.gen/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc] for cell 'pll2'
+WARNING: [Constraints 18-619] A clock with name 'clk_100mhz' already exists, overwriting the previous clock with the same name. [c:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.gen/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc:1]
+Finished Parsing XDC File [c:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.gen/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc] for cell 'pll2'
+Parsing XDC File [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc]
+WARNING: [Vivado 12-584] No ports matched 'note_on'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:57]
+WARNING: [Vivado 12-584] No ports matched 'ps2_data'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:65]
+WARNING: [Vivado 12-584] No ports matched 'ps2_data'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:67]
+WARNING: [Vivado 12-584] No ports matched 'audioEn'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:70]
+WARNING: [Vivado 12-584] No ports matched 'chSel'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:72]
+WARNING: [Vivado 12-584] No ports matched 'micClk'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:73]
+WARNING: [Vivado 12-584] No ports matched 'micData'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:74]
+WARNING: [Vivado 12-584] No ports matched 'servoSignal'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:82]
+WARNING: [Vivado 12-584] No ports matched 'reset'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:85]
+WARNING: [Vivado 12-584] No ports matched 'reset'. [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc:86]
+Finished Parsing XDC File [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/Wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/pds27/Desktop/ECE350_CPU/Nexys-A7-100T-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1495.496 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.068 . Memory (MB): peak = 1495.496 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1495.496 ; gain = 166.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1495.496 ; gain = 166.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.gen/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk_100mhz. (constraint file  c:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.gen/sources_1/ip/clk_wiz_1/clk_wiz_1/clk_wiz_1_in_context.xdc, line 4).
+Applied set_property KEEP_HIERARCHY = SOFT for pll. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for pll2. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1495.496 ; gain = 166.141
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'Ps2Interface'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                00000000000000001 |                            00000
+            rx_down_edge |                00000000000000010 |                            00011
+                rx_clk_l |                00000000000000100 |                            00010
+                rx_clk_h |                00000000000001000 |                            00001
+         rx_error_parity |                00000000000010000 |                            00100
+           rx_data_ready |                00000000000100000 |                            00101
+          tx_force_clk_l |                00000000001000000 |                            00110
+      tx_bring_data_down |                00000000010000000 |                            00111
+          tx_release_clk |                00000000100000000 |                            01000
+ tx_first_wait_down_edge |                00000001000000000 |                            01001
+                tx_clk_l |                00000010000000000 |                            01010
+         tx_wait_up_edge |                00000100000000000 |                            01011
+tx_wait_up_edge_before_ack |                00001000000000000 |                            01101
+             tx_wait_ack |                00010000000000000 |                            01110
+         tx_received_ack |                00100000000000000 |                            01111
+         tx_error_no_ack |                01000000000000000 |                            10000
+                tx_clk_h |                10000000000000000 |                            01100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'Ps2Interface'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:24 . Memory (MB): peak = 1495.496 ; gain = 166.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 8     
+	   7 Input   32 Bit       Adders := 1     
+	   8 Input   13 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 3     
+	   2 Input    8 Bit       Adders := 1     
+	   2 Input    7 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 3     
+	   2 Input    3 Bit       Adders := 2     
++---XORs : 
+	   2 Input     32 Bit         XORs := 4     
+	   3 Input      8 Bit         XORs := 16    
+	   2 Input      1 Bit         XORs := 96    
++---Registers : 
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 3     
+	               13 Bit    Registers := 1     
+	               11 Bit    Registers := 2     
+	               10 Bit    Registers := 1026  
+	                8 Bit    Registers := 10    
+	                7 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 1534  
++---Multipliers : 
+	               6x32  Multipliers := 8     
++---RAMs : 
+	             128K Bit	(4096 X 32 bit)          RAMs := 1     
++---ROMs : 
+	                    ROMs := 1     
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 94    
+	  17 Input   17 Bit        Muxes := 1     
+	   2 Input   17 Bit        Muxes := 18    
+	   2 Input   12 Bit        Muxes := 9     
+	 256 Input   12 Bit        Muxes := 9     
+	   2 Input   11 Bit        Muxes := 2     
+	   2 Input   10 Bit        Muxes := 9     
+	   2 Input    9 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	   2 Input    7 Bit        Muxes := 1     
+	   2 Input    6 Bit        Muxes := 1     
+	   2 Input    5 Bit        Muxes := 6     
+	   4 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 2     
+	   5 Input    3 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 73    
+	   3 Input    1 Bit        Muxes := 1     
+	   6 Input    1 Bit        Muxes := 17    
+	   4 Input    1 Bit        Muxes := 1     
+	  17 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:01:02 . Memory (MB): peak = 1495.496 ; gain = 166.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+ROM: Preliminary Mapping Report
++----------------+---------------------+---------------+----------------+
+|Module Name     | RTL Object          | Depth x Width | Implemented As | 
++----------------+---------------------+---------------+----------------+
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|AudioController | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | p_0_out             | 256x10        | LUT            | 
+|Wrapper         | InstMem/dataOut_reg | 4096x13       | Block RAM      | 
++----------------+---------------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping Report (see note below)
++------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Wrapper     | ProcMem/MemoryArray_reg | 4 K x 32(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
++------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-565] redefining clock 'clk_100mhz'
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:07 . Memory (MB): peak = 1495.496 ; gain = 166.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:02 ; elapsed = 00:01:08 . Memory (MB): peak = 1495.496 ; gain = 166.141
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping Report
++------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Wrapper     | ProcMem/MemoryArray_reg | 4 K x 32(NO_CHANGE)    | W | R |                        |   |   | Port A           | 0      | 4      | 
++------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP, Shift Register and Retiming Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance ProcMem/MemoryArray_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+INFO: [Synth 8-7052] The timing for the instance InstMem/dataOut_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the ram block. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:07 ; elapsed = 00:01:13 . Memory (MB): peak = 1536.703 ; gain = 207.348
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:11 ; elapsed = 00:01:17 . Memory (MB): peak = 1548.941 ; gain = 219.586
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:11 ; elapsed = 00:01:17 . Memory (MB): peak = 1548.941 ; gain = 219.586
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin clock_ps2 with 1st driver pin 'clk_inter_i_1/O' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:27]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin clock_ps2 with 2nd driver pin 'pll2/clk_out1' [C:/Users/pds27/Desktop/ECE350_CPU/Wrapper_timing.v:60]
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        1|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:12 ; elapsed = 00:01:18 . Memory (MB): peak = 1548.941 ; gain = 219.586
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:12 ; elapsed = 00:01:18 . Memory (MB): peak = 1548.941 ; gain = 219.586
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:13 ; elapsed = 00:01:18 . Memory (MB): peak = 1548.949 ; gain = 219.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:13 ; elapsed = 00:01:18 . Memory (MB): peak = 1548.949 ; gain = 219.594
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
+|2     |clk_wiz_1     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |clk_wiz  |     2|
+|3     |BUFG     |     1|
+|4     |CARRY4   |   194|
+|5     |LUT1     |    30|
+|6     |LUT2     |   577|
+|7     |LUT3     |   355|
+|8     |LUT4     |   703|
+|9     |LUT5     |  1404|
+|10    |LUT6     |  4271|
+|11    |MUXF7    |  1433|
+|12    |MUXF8    |   660|
+|13    |RAMB36E1 |     6|
+|16    |FDCE     |   660|
+|17    |FDRE     | 10780|
+|18    |IBUF     |    17|
+|19    |OBUF     |    17|
++------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:13 ; elapsed = 00:01:18 . Memory (MB): peak = 1548.949 ; gain = 219.594
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 2 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:02 ; elapsed = 00:01:14 . Memory (MB): peak = 1548.949 ; gain = 65.781
+Synthesis Optimization Complete : Time (s): cpu = 00:01:13 ; elapsed = 00:01:18 . Memory (MB): peak = 1548.949 ; gain = 219.594
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.194 . Memory (MB): peak = 1561.012 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2293 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'Wrapper' is not ideal for floorplanning, since the cellview 'AudioController' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1564.699 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete, checksum: 225bfeab
+INFO: [Common 17-83] Releasing license: Synthesis
+96 Infos, 60 Warnings, 2 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:18 ; elapsed = 00:01:25 . Memory (MB): peak = 1564.699 ; gain = 235.344
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+INFO: [Common 17-1381] The checkpoint 'C:/Users/pds27/Desktop/ECE350_CPU/4_19/4_19.runs/synth_1/Wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Wrapper_utilization_synth.rpt -pb Wrapper_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Apr 19 21:40:12 2025...

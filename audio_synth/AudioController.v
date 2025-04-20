@@ -354,16 +354,16 @@ endmodule
 
 // Polyphonic sine wave synth
 
-/*
+
 module AudioController(
     input        clk,        // 100?MHz
     input        micData,    // unused
     input [12:0] switches,   // unused
     output reg   micClk = 0,
     output       chSel,
-    output       audioOut,   // PWM audio output
+    output       audioOutput,   // PWM audio output
     output       audioEn,
-    inout        ps2_clk,
+    input        ps2_clk,
     inout        ps2_data,
     input        reset       // asynchronous reset
 );
@@ -545,7 +545,7 @@ module AudioController(
     reg [PWM_BITS-1:0] pwm_counter = 0;
     always @(posedge clk)
         pwm_counter <= pwm_counter + 1;
-    assign audioOut = (pwm_counter < total_sine);
+    assign audioOutput = (pwm_counter < total_sine);
 
 endmodule
-*/
+
