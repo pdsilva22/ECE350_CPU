@@ -20,7 +20,8 @@ set_property -dict { PACKAGE_PIN D12   IOSTANDARD LVCMOS33 } [get_ports { audioE
 set_property -dict { PACKAGE_PIN A11   IOSTANDARD LVCMOS33 } [get_ports { audioOut }]; 
 set_property -dict { PACKAGE_PIN F5   IOSTANDARD LVCMOS33 } [get_ports { chSel }]; 
 set_property -dict { PACKAGE_PIN E3   IOSTANDARD LVCMOS33 } [get_ports { clk }]; 
-create_clock -add -name sys_clk_pin -period 12.00 -waveform {0 6} [get_ports {clk}]; //83.33 mhz
+#create_clock -add -name sys_clk_pin -period 12.00 -waveform {0 6} [get_ports {clk}]; //83.33 mhz
+create_clock -add -name sys_clk_pin -period 10.00 -waveform {0 5} [get_ports {clk}]; //100 mhz
 
 set_property -dict { PACKAGE_PIN J5   IOSTANDARD LVCMOS33 } [get_ports { micClk }]; 
 set_property -dict { PACKAGE_PIN H5   IOSTANDARD LVCMOS33 } [get_ports { micData }]; 

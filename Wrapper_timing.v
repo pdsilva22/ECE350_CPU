@@ -68,7 +68,7 @@ module Wrapper (
 //   // Clock in ports
 //    .clk_in1(clk_100mhz));      // input clk_in1
     
-    clk_wiz_4 pll2
+    clk_wiz_0 pll2
    (
     // Clock out ports
     .clk_out1(clk_50mhz),     // output clk_out1
