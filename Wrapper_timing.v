@@ -27,14 +27,14 @@
 module Wrapper (
     input clk_100mhz,
     input BTNU, 
-	//input ps2_clock,
-	//input ps2_data,
+	inout ps2_clk,
+	inout ps2_data,
     input [15:0] SW,
-	output audioOut,
+	output audioOut,  //try next with this signal commented out
     output reg [15:0] LED);
     wire clock, clock_ps2, reset;
     assign clock = clk_50mhz;
-    assign clock_ps2 = clk_out_ps2;
+    //assign clock_ps2 = clk_out_ps2;
     assign reset = BTNU; 
 	wire rwe, mwe;
 	wire[4:0] rd, rs1, rs2;
@@ -45,27 +45,60 @@ module Wrapper (
     
     wire io_read, io_write;
     
-    wire clk_50mhz, clk_out_ps2;
+    wire clk_50mhz, clk_out_ps2, audio_clk;
     wire locked, locked2;
-    clk_wiz_0 pll(
-      // Clock out ports
-      .clk_out1(clk_50mhz),
-      // Status and control signals
-      .reset(1'b0),
-      .locked(locked),
-     // Clock in ports
-      .clk_in1(clk_100mhz)
-     );
-     //same 31.25 mHz clock as pll above 
-    clk_wiz_1 pll2
+//    clk_wiz_0 pll(
+//      // Clock out ports
+//      .clk_out1(clk_50mhz),
+//      // Status and control signals
+//      .reset(1'b0),
+//      .locked(locked),
+//     // Clock in ports
+//      .clk_in1(clk_100mhz)
+//     );
+     
+//     clk_wiz_3 pll2
+//   (
+//    // Clock out ports
+//    .clk_out1(clk_50mhz),     // output clk_out1(31.25 mhz)
+//    .clk_out2(audio_clk),     // output clk_out2 (6.5 mhz)
+//    // Status and control signals
+//    .reset(reset), // input reset
+//    .locked(locked),       // output locked
+//   // Clock in ports
+//    .clk_in1(clk_100mhz));      // input clk_in1
+    
+    clk_wiz_4 pll2
    (
     // Clock out ports
-    .clk_out1(clk_out_ps2),     // output clk_out1
+    .clk_out1(clk_50mhz),     // output clk_out1
+    .clk_out2(audio_clk),     // output clk_out2
     // Status and control signals
     .reset(reset), // input reset
-    .locked(locked2),       // output locked
+    .locked(locked),       // output locked
    // Clock in ports
-    .clk_in1(clk_100mhz));      // input clk_in1 (can I do this, route board clk to two different places)
+    .clk_in1(clk_100mhz));      // input clk_in1
+
+     
+//     clk_wiz_2 pll2
+//   (
+//    // Clock out ports
+//    .clk_out1(audio_clk),     // output clk_out1
+//    // Status and control signals
+//    .reset(reset), // input reset
+//    .locked(locked2),       // output locked
+//   // Clock in ports
+//    .clk_in1(clk_100mhz));      // input clk_in1
+     //same 31.25 mHz clock as pll above 
+//    clk_wiz_1 pll2
+//   (
+//    // Clock out ports
+//    .clk_out1(clk_out_ps2),     // output clk_out1
+//    // Status and control signals
+//    .reset(reset), // input reset
+//    .locked(locked2),       // output locked
+//   // Clock in ports
+//    .clk_in1(ps2_clk));      // input clk_in1 (can I do this, route board clk to two different places)
     
     assign io_read = (memAddr == 32'd4096) ? 1'b1: 1'b0;
 
@@ -126,10 +159,12 @@ module Wrapper (
 	//what is audioOut, how many bits?
 	//wire[15:0] audioOut; //wire or reg?? --> don't need, specified in constraints file
 	AudioController audio(
-	   .clk(clock),
+	   .clk(audio_clk), //should this be system clock at 100 mHz???
 		.audioOutput(audioOut),
-		.ps2_clk(clock_ps2)  //try assigning main clock to ps_2 (may need to generate separate clock wizard)
-		//.ps2_data(ps2_data)
+		//.psclk(clock_ps2)  //try assigning main clock to ps_2 (may need to generate separate clock wizard)
+		.psclk(ps2_clk),
+		.psdata(ps2_data),
+		.reset(reset)
 	);
 		
 	

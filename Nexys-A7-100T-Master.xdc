@@ -8,7 +8,9 @@ set_property -dict {PACKAGE_PIN E3 IOSTANDARD LVCMOS33} [get_ports clk_100mhz]
 create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_ports clk_100mhz]
 #create_clock -period 32.000 -name sys_clk_pin -waveform {0.000 16.000} -add [get_ports clk_100mhz]
 #^line above is used for the purpose of running timing reports in vivado for verification, for actual deployment need pll
-
+# Tell Vivado the CPU and AudioController are in different clock domains
+set_clock_groups -asynchronous -group [get_clocks clk_50mhz] -group [get_clocks clk_100mhz]
+#^clk_50mhz is output from pll, will that do what I want?
 
 ##Switches
 set_property -dict { PACKAGE_PIN J15   IOSTANDARD LVCMOS33 } [get_ports { SW[0] }]; #IO_L24N_T3_RS0_15 Sch=sw[0]
@@ -55,15 +57,16 @@ set_property -dict { PACKAGE_PIN M18   IOSTANDARD LVCMOS33 } [get_ports { BTNU }
 
 # Note on input
 set_property PACKAGE_PIN U1  [get_ports note_on]
+set_property IOSTANDARD LVCMOS33 [get_ports note_on]
 
 # Set CFGBVS and CONFIG_VOLTAGE properties
 set_property CFGBVS VCCO [current_design]
 set_property CONFIG_VOLTAGE 3.3 [current_design]
 
 # PS2 Stuff
-#set_property PACKAGE_PIN F4 [get_ports ps2_clk]
+set_property PACKAGE_PIN F4 [get_ports ps2_clk]
 set_property PACKAGE_PIN B2 [get_ports ps2_data]
-#set_property IOSTANDARD LVCMOS33 [get_ports ps2_clk]
+set_property IOSTANDARD LVCMOS33 [get_ports ps2_clk]
 set_property IOSTANDARD LVCMOS33 [get_ports ps2_data]
 
 # Audio

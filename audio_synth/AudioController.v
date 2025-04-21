@@ -361,10 +361,10 @@ module AudioController(
     input [12:0] switches,   // unused
     output reg   micClk = 0,
     output       chSel,
-    output       audioOutput,   // PWM audio output
+    output  wire     audioOutput,   // PWM audio output
     output       audioEn,
-    input        ps2_clk,
-    inout        ps2_data,
+    inout        psclk,    //note: used to be inout signal
+    inout        psdata,
     input        reset       // asynchronous reset
 );
     // static assignments
@@ -376,10 +376,23 @@ module AudioController(
     wire [7:0] rx_data;
     wire       read_data;
     reg        waiting_break = 1'b0;
+    
+    //use pll to slow down clock active_count
+    wire locked, modclk;
+     clk_wiz_2 pll
+   (
+    // Clock out ports
+    .clk_out1(modclk),     // output clk_out1
+    // Status and control signals
+    .reset(reset), // input reset
+    .locked(locked),       // output locked
+   // Clock in ports
+    .clk_in1(clk));      // input clk_in1
+    
 
     Ps2Interface ps2(
-        .ps2_clk   (ps2_clk),
-        .ps2_data  (ps2_data),
+        .ps2_clk   (psclk),
+        .ps2_data  (psdata),  //don't have enable signals for Ps2Interface.vhd
         .clk       (clk),
         .rst       (reset),
         .rx_data   (rx_data),
@@ -522,8 +535,12 @@ module AudioController(
             end
         end
     end
-    wire [PWM_BITS-1:0] mixed_sine =
-        (active_count > 0) ? (sine_sum / active_count) : 0;
+   // wire [PWM_BITS-1:0] mixed_sine = 0; //set to 0 to avoid division
+       // (active_count > 0) ? (sine_sum / active_count) : 0;
+    
+    wire [PWM_BITS-1:0] mixed_sine = 
+       (active_count > 0) ? {2'b00, sine_sum[PWM_BITS+1:2]} : 0; // divide by 4 (still fails timing)
+       //(active_count > 0) ? sine_sum[PWM_BITS+4:PWM_BITS-1] : 0; //can't play two sounds together
 
     //================================================================
     // Delay buffer

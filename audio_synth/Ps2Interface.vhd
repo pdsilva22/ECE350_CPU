@@ -151,8 +151,8 @@ use UNISIM.VComponents.all;
 -- read above for behavioral description and port definitions.
 entity Ps2Interface is
 port(
-   ps2_clk  : inout std_logic;
-   ps2_data : inout std_logic;
+   ps2_clk  : inout std_logic;  --mod from inout 
+   ps2_data : inout std_logic;   --mod from inout
 
    clk      : in std_logic;
    rst      : in std_logic;
