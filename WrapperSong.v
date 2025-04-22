@@ -30,7 +30,7 @@ module Wrapper (
 	inout ps2_clk,
 	inout ps2_data,
     input [15:0] SW,
-	output reg audioOut,  //try next with this signal commented out
+	output audioOut,  //try next with this signal commented out
     output reg [15:0] LED);
     wire clock, clock_ps2, reset;
     assign clock = clk_50mhz;
@@ -43,7 +43,7 @@ module Wrapper (
 		memAddr, memDataIn, memDataOut, q_dmem, data;
     reg [15:0] SW_Q, SW_M;  
     
-    wire io_read, io_write;
+    wire io_read, io_write, audio_write;
     
     wire clk_50mhz, clk_out_ps2, audio_clk;
     wire locked, locked2;
@@ -61,20 +61,25 @@ module Wrapper (
 
     assign io_read = (memAddr == 32'd4096) ? 1'b1: 1'b0;
 
-    assign io_write = (memAddr == 32'd4097) ? 1'b1: 1'b0;
+    assign led_write = (memAddr == 32'd4097) ? 1'b1: 1'b0;
+
+    assign audio_write = (memAddr == 32'd4098) ? 1'b1: 1'b0;
+
      always @(negedge clock) begin
            SW_M <= SW;
            SW_Q <= SW_M; 
        end
        
        always @(posedge clock) begin
-           if (io_write == 1'b1) begin
+           if (led_write == 1'b1) begin
                LED <= memDataIn[15:0];
 			   //audioOut <= memDataIn[0];
-               pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
            end else begin
                LED <= LED;
            end
+            if (audio_write == 1'b1) begin
+               pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
+           end 
        end
 	   
     assign q_dmem = (io_read == 1'b1) ? SW_Q : memDataOut;

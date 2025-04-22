@@ -56,7 +56,7 @@ continue_loop:
     # Nested loop to repeat the sw command 2000 times for the current sample
     addi $t6, $0, 2000       # $t6 = 2000 (number of repetitions)
 repeat_loop:
-    sw $t0, 4097($0)         # Write the sample value to audioOut (4097)
+    sw $t0, 4098($0)         # Write the sample value to audioOut (4097)
     nop
     nop
     nop
