@@ -379,7 +379,7 @@ module AudioController(
     
     //use pll to slow down clock active_count
 //    wire locked, modclk;
-     clk_wiz_0 pll
+     clk_wiz_0 pll //clocked to 83.33 mhz
    (
     // Clock out ports
     .clk_out1(modclk),     // output clk_out1

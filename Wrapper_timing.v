@@ -47,15 +47,15 @@ module Wrapper (
     
     wire clk_50mhz, clk_out_ps2, audio_clk;
     wire locked, locked2;
-//    clk_wiz_0 pll(
-//      // Clock out ports
-//      .clk_out1(clk_50mhz),
-//      // Status and control signals
-//      .reset(1'b0),
-//      .locked(locked),
-//     // Clock in ports
-//      .clk_in1(clk_100mhz)
-//     );
+    clk_wiz_0 pll(
+      // Clock out ports
+      .clk_out1(clk_50mhz),
+      // Status and control signals
+      .reset(1'b0),
+      .locked(locked),
+     // Clock in ports
+      .clk_in1(clk_100mhz)
+     );
      
 //     clk_wiz_3 pll2
 //   (
@@ -68,16 +68,16 @@ module Wrapper (
 //   // Clock in ports
 //    .clk_in1(clk_100mhz));      // input clk_in1
     
-    clk_wiz_0 pll2
-   (
-    // Clock out ports
-    .clk_out1(clk_50mhz),     // output clk_out1
-    .clk_out2(audio_clk),     // output clk_out2
-    // Status and control signals
-    .reset(reset), // input reset
-    .locked(locked),       // output locked
-   // Clock in ports
-    .clk_in1(clk_100mhz));      // input clk_in1
+//    clk_wiz_0 pll2
+//   (
+//    // Clock out ports
+//    .clk_out1(clk_50mhz),     // output clk_out1
+//    .clk_out2(audio_clk),     // output clk_out2
+//    // Status and control signals
+//    .reset(reset), // input reset
+//    .locked(locked),       // output locked
+//   // Clock in ports
+//    .clk_in1(clk_100mhz));      // input clk_in1
 
      
 //     clk_wiz_2 pll2
@@ -159,7 +159,7 @@ module Wrapper (
 	//what is audioOut, how many bits?
 	//wire[15:0] audioOut; //wire or reg?? --> don't need, specified in constraints file
 	AudioController audio(
-	   .clk(audio_clk), //should this be system clock at 100 mHz???
+	   .clk(clock), //should this be system clock at 100 mHz???
 		.audioOutput(audioOut),
 		//.psclk(clock_ps2)  //try assigning main clock to ps_2 (may need to generate separate clock wizard)
 		.psclk(ps2_clk),

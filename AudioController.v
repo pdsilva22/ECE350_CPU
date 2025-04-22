@@ -361,10 +361,10 @@ module AudioController(
     input [12:0] switches,   // unused
     output reg   micClk = 0,
     output       chSel,
-    output  wire     audioOut,   // PWM audio output
+    output  wire     audioOutput,   // PWM audio output
     output       audioEn,
-    inout        ps2_clk,    //note: used to be inout signal
-    inout        ps2_data,
+    inout        psclk,    //note: used to be inout signal
+    inout        psdata,
     input        reset       // asynchronous reset
 );
     // static assignments
@@ -379,6 +379,7 @@ module AudioController(
     
     //use pll to slow down clock active_count
 //    wire locked, modclk;
+    //modclk is 65 mhz
      clk_wiz_0 pll
    (
     // Clock out ports
@@ -562,7 +563,7 @@ module AudioController(
     reg [PWM_BITS-1:0] pwm_counter = 0;
     always @(posedge modclk)
         pwm_counter <= pwm_counter + 1;
-    assign audioOut = (pwm_counter < total_sine);
+    assign audioOutput = (pwm_counter < total_sine);
 
 endmodule
 

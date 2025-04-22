@@ -1,0 +1,16 @@
+// Song 1 data (16-bit samples, 44.1kHz sample rate)
+// Starting at address 0x2000 (8192)
+@2000
+8000 // Sample 1
+8500 // Sample 2
+9000 // Sample 3
+9500 // Sample 4
+A000 // Sample 5
+...
+
+// Song 2 data
+// Starting at address 0x3000 (12288)
+@3000
+7FFF // Sample 1
+7F00 // Sample 2
+7E00 // Sample 3
