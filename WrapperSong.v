@@ -55,9 +55,22 @@ module Wrapper (
     
     // Memory data mux
     assign q_dmem = (io_read == 1'b1) ? {16'h0000, SW_Q} : memDataOut;
+
+    wire audio_write;
+    assign audio_write = (memAddr == 32'd8192); // 0x2000
+
+    reg [15:0] audio_sample;
+
+    always @(posedge clock) begin
+        if (audio_write)
+            audio_sample <= memDataIn[15:0];
+    end
+
+    assign audioOut = audio_sample[15];  
+
     
     // Memory file
-    localparam INSTR_FILE = "playsong";
+    localparam INSTR_FILE = "song_play";
     
     // Main Processing Unit
     processor CPU(
@@ -103,7 +116,7 @@ module Wrapper (
     );
                         
     // Processor Memory (RAM)
-    RAM ProcMem(
+    RAM #(.MEMFILE("songs.mem")) ProcMem(
         .clk(clock), 
         .wEn(mwe), 
         .addr(memAddr[11:0]), 
@@ -112,6 +125,7 @@ module Wrapper (
     );
 
     // Audio Controller
+    /*
     PlayBackController controller(
         .clk(clock),
         .reset(reset),
@@ -119,4 +133,6 @@ module Wrapper (
         .data_valid(audio_data_valid),
         .audioOut(audioOut)
     );
+    */
+
 endmodule
