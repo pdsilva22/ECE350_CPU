@@ -1,4 +1,8 @@
 main:
+    addi $s6, $0, 1   
+    sll $a0, $s6, 15
+    jal led
+    j end
 	jal read_switches
     add $a0, $v0, $0
     addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
@@ -84,4 +88,5 @@ play_done:
     jr $ra                    # Return from play_song
     #need to somehow reset switches before immediately doing load store from main
 
-
+end:
+    j end
