@@ -74,12 +74,15 @@ module Wrapper (
            if (led_write == 1'b1) begin
                LED <= memDataIn[15:0];
 			   //audioOut <= memDataIn[0];
+			   pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
            end else begin
                LED <= LED;
            end
+           /*
             if (audio_write == 1'b1) begin
                pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
            end 
+           */
        end
 	   
     assign q_dmem = (io_read == 1'b1) ? SW_Q : memDataOut;
