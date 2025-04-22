@@ -9,6 +9,11 @@ main:
 	j main
 
 write_mem:
+	addi $a0, $0, 10
+	nop
+	nop
+	nop
+	nop
 	sw $a0, 4097($0)
 	jr $ra
 
