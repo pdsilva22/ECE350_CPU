@@ -61,9 +61,9 @@ module Wrapper (
 
     assign io_read = (memAddr == 32'd4096) ? 1'b1: 1'b0;
 
-    assign led_write = (memAddr == 32'd4097) ? 1'b1: 1'b0;
+    assign io_write = (memAddr == 32'd4097) ? 1'b1: 1'b0;
 
-    assign audio_write = (memAddr == 32'd4098) ? 1'b1: 1'b0;
+    assign audio_write = (memAddr == 32'd4098) ? 1'b1: 1'b0; 
 
      always @(negedge clock) begin
            SW_M <= SW;
@@ -71,18 +71,15 @@ module Wrapper (
        end
        
        always @(posedge clock) begin
-           if (led_write == 1'b1) begin
+           if (io_write == 1'b1) begin
                LED <= memDataIn[15:0];
 			   //audioOut <= memDataIn[0];
-			   pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
            end else begin
                LED <= LED;
            end
-           /*
-            if (audio_write == 1'b1) begin
-               pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
-           end 
-           */
+           if (audio_write == 1'b1) begin
+                pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
+           end
        end
 	   
     assign q_dmem = (io_read == 1'b1) ? SW_Q : memDataOut;
@@ -99,7 +96,7 @@ module Wrapper (
     );
 
     assign audioOut = pwm_signal;
-
+    
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "timing_song";
 	

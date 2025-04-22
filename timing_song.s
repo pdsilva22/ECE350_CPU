@@ -1,8 +1,10 @@
 main:
 	jal read_switches
-	add $a0, $v0, $0
+    add $a0, $v0, $0
+    addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
 	jal led  #turn on LED corresponding to switch
 	#based on value in s0, determine which song to play
+    blt $a0, $s5, main    #keep looping main if no input switches flipped
 	jal play_song
 	j main
 
@@ -80,5 +82,6 @@ repeat_loop:
 
 play_done:
     jr $ra                    # Return from play_song
+    #need to somehow reset switches before immediately doing load store from main
 
 
