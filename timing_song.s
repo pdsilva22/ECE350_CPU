@@ -25,6 +25,10 @@ read_switches:
 play_song:
     # Calculate base address of selected song
     sll $t1, $a0, 8         # $t1 = $a0 * 256
+    nop
+	nop
+	nop
+	nop
     add $t2, $t1, $0        # $t2 = base address
     addi $t3, $0, 0         # $t3 = loop index (offset)
 
@@ -35,10 +39,18 @@ play_loop:
     nop
     nop
     blt $t3, $t4, continue_loop
+    nop
+	nop
+	nop
+	nop
     j play_done             # if $t3 >= 256, exit
 
 continue_loop:
     add $t5, $t2, $t3       # $t5 = current address
+    nop
+	nop
+	nop
+	nop
     lw $t0, 0($t5)          # load sample
 
     # Nested loop to repeat the sw command 2000 times for the current sample
@@ -55,8 +67,15 @@ repeat_loop:
     nop
     nop
     bne $t6, $0, repeat_loop # If $t6 != 0, repeat the write
-
+    nop
+	nop
+	nop
+	nop
     addi $t3, $t3, 1         # Increment the song sample index ($t3++)
+    nop
+	nop
+	nop
+	nop
     j play_loop              # Jump back to check the next sample
 
 play_done:
