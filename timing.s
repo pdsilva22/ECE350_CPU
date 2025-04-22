@@ -1,6 +1,7 @@
 main:
 	jal read_mem
-	add $a0, $v0, $0
+	add $s0, $v0, $0
+	addi $a0, $s0, 10   
 	nop
 	nop
 	nop
@@ -9,12 +10,11 @@ main:
 	j main
 
 write_mem:
-	addi $a0, $0, 10
-	nop
-	nop
-	nop
-	nop
 	sw $a0, 4097($0)
+	nop
+	nop
+	nop
+	nop
 	jr $ra
 
 read_mem:
