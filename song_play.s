@@ -6,9 +6,17 @@ main:
 
 check_switches:
     and  $4, $2, $3         # $4 = result of masked switch
+    nop
+    nop
+    nop
+    nop
     bne  $4, $0, play_song  # If bit is ON, jump to play_song
     sll  $3, $3, 1          # shift mask left
     addi $5, $5, 1          # increment song index
+    nop
+    nop
+    nop
+    nop
     bne  $5, $16, check_switches  # Loop while index < 16
     j done                  # None pressed, halt
 
@@ -23,6 +31,10 @@ play_loop:
     addi $11, $0, 4097      # $11 = audioOut I/O address
     sw   $10, 0($11)        # send to audioOut
     addi $8, $8, 1          # offset++
+    nop
+    nop
+    nop
+    nop
     bne  $8, $7, play_loop  # loop until 256 samples played
 
 done:
