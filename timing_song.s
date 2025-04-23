@@ -1,11 +1,4 @@
 main:
-    addi $s6, $0, 1   
-    nop
-    nop
-    nop
-    nop
-    sll $a0, $s6, 15
-    jal led
 	jal read_switches
     add $a0, $v0, $0
     addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
