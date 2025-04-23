@@ -1,9 +1,35 @@
 main:
+    jal read_switches
+    add $a0, $v0, $0
+    nop
+    nop
+    nop
+    nop
+	jal led  #turn on LED corresponding to switch
+    addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
+    nop
+    nop
+    nop
+    nop
+    blt $a0, $s5, main    #keep looping main if no input switches flipped
+    nop
+    nop
+    nop
+    nop
+
     add $s0, $s0, $0   #base index
     addi $s1, $0, 0         # $s1 = loop index (offset)
     addi $s2, $0, 256       # $t4 = 256 (loop limit)
     j play_loop
 
+read_switches:
+	lw $v0, 4096($0)
+	nop
+	nop
+	nop
+	nop
+	jr $ra
+    
 led:
 	sw $a0, 4097($0)
 	nop
