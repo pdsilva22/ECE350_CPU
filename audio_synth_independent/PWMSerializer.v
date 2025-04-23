@@ -8,10 +8,10 @@ UPDATE 4/15 --> Serializer audio enable works (can toggle audio on/off)
 module PWMSerializer #(
     parameter 
     // Parameters in nanoseconds
-    PERIOD_WIDTH_NS = 20000000,  // Total width of the period in nanoseconds
-    SYS_FREQ_MHZ   = 100         // Base FPGA Clock in MHz; Nexys A7 uses a 100 MHz Clock
+    PERIOD_WIDTH_NS = 20000000,  //Total width of the period in nanoseconds
+    SYS_FREQ_MHZ   = 31         // Base FPGA Clock in MHz; Nexys A7 uses a 100 MHz Clock
     )(
-    input clk,               // System Clock
+    input clk,               // System Clock 
     input reset,             // Reset the counter
     input audio_enable,      // Enable/disable PWM signal output
     input [9:0] duty_cycle,  // Duty Cycle of the Wave, between 0 and 1023 - scaled to 0 and 100

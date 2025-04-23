@@ -57,7 +57,7 @@ module Wrapper (
       .clk_in1(clk_100mhz)
      );
      
-    reg [9:0] pwm_duty_cycle = 10'd0;
+    reg [11:0] frequency = 12'd0;
 
     assign io_read = (memAddr == 32'd4096) ? 1'b1: 1'b0;
 
@@ -74,7 +74,7 @@ module Wrapper (
             //LED[15] <= audio_write;
            if (io_write == 1'b1) begin
                LED <= memDataIn[15:0];
-               pwm_duty_cycle <= memDataIn[9:0];
+               frequency <= memDataIn[9:0];
 			   //audioOut <= memDataIn[0];
            end else begin
                LED <= LED;
@@ -86,21 +86,39 @@ module Wrapper (
            end
            */
        end
+
+    // Set the threshold using the frequencies, indexing using the buttons directly
+    wire[31:0] thresh;
+    localparam SYSTEM_FREQ = 100000000  //31mhz or 100 mhz
+    assign thresh = (SYSTEM_FREQ /frequency) >> 1;
+    // Define counter and audio clock
+    reg audioClk = 0;
+    reg[31:0] counter = 0;
+    always @(posedge clock) begin
+        if (counter < thresh - 1) // Subtracted 1 here instead of thresh calculation
+            counter <= counter + 1;
+        else begin
+            counter <= 0;
+            audioClk <= ~audioClk;
+        end
+    end
+    // Use mux to output set duty cycle to approximately 90% or 10%
+    wire[9:0] duty_cycle;
+    assign duty_cycle = audioClk ? 10'd920 : 10'd100; // 90% on high clock, 10% on low
+    // Implementing the PWMSerializer module
+    PWMSerializer #(
+    .PERIOD_WIDTH_NS(1000),
+    .SYS_FREQ_MHZ(100)
+    ) ser(
+    .clk(clock),
+    .reset(1'b0),
+    .duty_cycle(duty_cycle),
+    .signal(audioOut)
+    );
 	   
     assign q_dmem = (io_read == 1'b1) ? SW_Q : memDataOut;
 
 
-    wire pwm_signal;
-
-    PWMSerializer audio_pwm (
-        .clk(clock),
-        .reset(reset),
-        .audio_enable(1'b1),
-        .duty_cycle(pwm_duty_cycle),
-        .signal(pwm_signal)
-    );
-
-    assign audioOut = pwm_signal;
     
 	// ADD YOUR MEMORY FILE HERE
 	localparam INSTR_FILE = "load_ram";
@@ -135,7 +153,7 @@ module Wrapper (
 						
 	// Processor Memory (RAM)
 	
-	 RAM #(.MEMFILE("songs2.mem")) ProcMem(
+	 RAM #(.MEMFILE("freqs.mem")) ProcMem(
         .clk(clock), 
         .wEn(mwe), 
         .addr(memAddr[11:0]), 
