@@ -1,5 +1,9 @@
 main:
     addi $s6, $0, 1   
+    nop
+    nop
+    nop
+    nop
     sll $a0, $s6, 15
     jal led
     j end
