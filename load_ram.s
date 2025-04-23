@@ -46,7 +46,7 @@ continue_loop:
     nop
     nop
     nop
-    addi $s1, $s1, -1
+    addi $s1, $s1, 1
     j wait
 
 wait:

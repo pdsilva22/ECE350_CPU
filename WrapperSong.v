@@ -100,7 +100,7 @@ module Wrapper (
     assign audioOut = pwm_signal;
     
 	// ADD YOUR MEMORY FILE HERE
-	localparam INSTR_FILE = "timing_song";
+	localparam INSTR_FILE = "load_ram";
 	
 	// Main Processing Unit
 	processor CPU(.clock(clock), .reset(reset), 
