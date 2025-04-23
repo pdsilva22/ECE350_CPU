@@ -89,7 +89,7 @@ module Wrapper (
 
     // Set the threshold using the frequencies, indexing using the buttons directly
     wire[31:0] thresh;
-    localparam SYSTEM_FREQ = 100000000  //31mhz or 100 mhz
+    localparam SYSTEM_FREQ = 100000000;  //31mhz or 100 mhz
     assign thresh = (SYSTEM_FREQ /frequency) >> 1;
     // Define counter and audio clock
     reg audioClk = 0;
