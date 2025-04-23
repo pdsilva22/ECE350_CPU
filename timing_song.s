@@ -119,7 +119,7 @@ repeat_loop:
 
 play_done:
     jr $ra                    # Return from play_song
-    #need to somehow reset switches before immediately doing load store from main
+   
 
 end:
     j end
