@@ -71,14 +71,16 @@ module Wrapper (
        end
        
        always @(posedge clock) begin
+            LED[15] <= audio_write;
            if (io_write == 1'b1) begin
-               LED <= memDataIn[15:0];
+               LED[14:0] <= memDataIn[14:0];
 			   //audioOut <= memDataIn[0];
            end else begin
                LED <= LED;
            end
            if (audio_write == 1'b1) begin
-                pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle
+                pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle --> change to be 10 bit in RAM?
+                //pwm_duty_cycle <= memDataIn; // Store 10-bit duty cycle
            end
        end
 	   

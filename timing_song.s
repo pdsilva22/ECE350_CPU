@@ -19,7 +19,7 @@ main:
     nop
 	jal play_song
     j end
-	j main
+	j main    #when we j main, need to somehow reset switches or else will immediately start song 1 again
 
 led:
 	sw $a0, 4097($0)
@@ -72,6 +72,16 @@ continue_loop:
 	nop
 	nop
     lw $t0, 0($t5)          # load sample
+    nop
+    nop
+    nop
+    nop
+    add $a0, $0, $t0
+    nop
+    nop
+    nop
+    nop
+    jal led
 
     # Nested loop to repeat the sw command 2000 times for the current sample
     addi $t6, $0, 20000       # $t6 = 2000 (number of repetitions)
