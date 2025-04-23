@@ -41,7 +41,7 @@ continue_loop:
     nop
     nop
     nop
-    sll $t6, $t6, 7   #wait for one second
+    sll $t6, $t6, 10   #wait for one second
     nop
     nop
     nop

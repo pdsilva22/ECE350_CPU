@@ -63,7 +63,7 @@ module Wrapper (
 
     assign io_write = (memAddr == 32'd4097) ? 1'b1: 1'b0;
 
-    assign audio_write = (memAddr == 32'd4098) ? 1'b1: 1'b0; 
+    //assign audio_write = (memAddr == 32'd4098) ? 1'b1: 1'b0; 
 
      always @(negedge clock) begin
            SW_M <= SW;
@@ -71,17 +71,20 @@ module Wrapper (
        end
        
        always @(posedge clock) begin
-            LED[15] <= audio_write;
+            //LED[15] <= audio_write;
            if (io_write == 1'b1) begin
-               LED[14:0] <= memDataIn[14:0];
+               LED <= memDataIn[15:0];
+               pwm_duty_cycle <= memDataIn[9:0];
 			   //audioOut <= memDataIn[0];
            end else begin
                LED <= LED;
            end
+           /*
            if (audio_write == 1'b1) begin
                 pwm_duty_cycle <= memDataIn[9:0]; // Store 10-bit duty cycle --> change to be 10 bit in RAM?
                 //pwm_duty_cycle <= memDataIn; // Store 10-bit duty cycle
            end
+           */
        end
 	   
     assign q_dmem = (io_read == 1'b1) ? SW_Q : memDataOut;
