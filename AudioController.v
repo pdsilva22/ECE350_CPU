@@ -380,21 +380,21 @@ module AudioController(
     //use pll to slow down clock active_count
 //    wire locked, modclk;
     //modclk is 65 mhz
-     clk_wiz_0 pll
-   (
-    // Clock out ports
-    .clk_out1(modclk),     // output clk_out1
-    // Status and control signals
-    .reset(reset), // input reset
-    .locked(locked),       // output locked
-   // Clock in ports
-    .clk_in1(clk));      // input clk_in1
+//     clk_wiz_0 pll
+//   (
+//    // Clock out ports
+//    .clk_out1(modclk),     // output clk_out1
+//    // Status and control signals
+//    .reset(reset), // input reset
+//    .locked(locked),       // output locked
+//   // Clock in ports
+//    .clk_in1(clk));      // input clk_in1
     
 
     Ps2Interface ps2(
-        .ps2_clk   (ps2_clk),
-        .ps2_data  (ps2_data),  //don't have enable signals for Ps2Interface.vhd
-        .clk       (modclk),
+        .ps2_clk   (psclk),
+        .ps2_data  (psdata),  //don't have enable signals for Ps2Interface.vhd
+        .clk       (clk),
         .rst       (reset),
         .rx_data   (rx_data),
         .read_data (read_data)
@@ -433,7 +433,7 @@ module AudioController(
     reg       key_active  [0:MAX_KEYS-1];
 
     // handle PS/2 events: note make/break, toggles
-    always @(posedge modclk or posedge reset) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) begin
             waiting_break  <= 1'b0;
             octave_shift   <= 3'd0;
@@ -513,7 +513,7 @@ module AudioController(
 
         assign phase_inc[k] = final_f * PHASE_INC_MULT;
 
-        always @(posedge modclk or posedge reset) begin
+        always @(posedge clk or posedge reset) begin
             if (reset)
                 phase_acc[k] <= 0;
             else if (key_active[k])
@@ -540,14 +540,15 @@ module AudioController(
        // (active_count > 0) ? (sine_sum / active_count) : 0;
     
     wire [PWM_BITS-1:0] mixed_sine = 
-       (active_count > 0) ? {2'b00, sine_sum[PWM_BITS+1:2]} : 0; // divide by 4 (still fails timing)
+       //(active_count > 0) ? {2'b00, sine_sum[PWM_BITS+1:2]} : 0; // divide by 4 (still fails timing)
        //(active_count > 0) ? sine_sum[PWM_BITS+4:PWM_BITS-1] : 0; //can't play two sounds together
+       (active_count > 0) ? (sine_sum / active_count) : 0;
 
     //================================================================
     // Delay buffer
     reg [PWM_BITS-1:0] delay_buf [0:DELAY_DEPTH-1];
     reg [$clog2(DELAY_DEPTH)-1:0] delay_ptr;
-    always @(posedge modclk or posedge reset) begin
+    always @(posedge clk or posedge reset) begin
         if (reset) delay_ptr <= 0;
         else begin
             delay_buf[delay_ptr] <= mixed_sine;
@@ -561,7 +562,7 @@ module AudioController(
     //================================================================
     // PWM output
     reg [PWM_BITS-1:0] pwm_counter = 0;
-    always @(posedge modclk)
+    always @(posedge clk)
         pwm_counter <= pwm_counter + 1;
     assign audioOutput = (pwm_counter < total_sine);
 

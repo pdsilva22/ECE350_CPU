@@ -393,7 +393,7 @@ module AudioController(
     Ps2Interface ps2(
         .ps2_clk   (ps2_clk),
         .ps2_data  (ps2_data),  //don't have enable signals for Ps2Interface.vhd
-        .clk       (modclk),
+        .clk       (modaclk),
         .rst       (reset),
         .rx_data   (rx_data),
         .read_data (read_data)

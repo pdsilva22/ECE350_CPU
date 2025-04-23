@@ -9,7 +9,7 @@ create_clock -period 10.000 -name sys_clk_pin -waveform {0.000 5.000} -add [get_
 #create_clock -period 32.000 -name sys_clk_pin -waveform {0.000 16.000} -add [get_ports clk_100mhz]
 #^line above is used for the purpose of running timing reports in vivado for verification, for actual deployment need pll
 # Tell Vivado the CPU and AudioController are in different clock domains
-set_clock_groups -asynchronous -group [get_clocks clk_50mhz] -group [get_clocks clk_100mhz]
+#set_clock_groups -asynchronous -group [get_clocks clk_50mhz] -group [get_clocks clk_100mhz]
 #^clk_50mhz is output from pll, will that do what I want?
 
 ##Switches

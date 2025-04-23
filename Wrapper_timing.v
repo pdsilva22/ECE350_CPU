@@ -111,7 +111,6 @@ module Wrapper (
        always @(posedge clock) begin
            if (io_write == 1'b1) begin
                LED <= memDataIn[15:0];
-			   assign audioOut = memDataIn[0];
            end else begin
                LED <= LED;
            end
@@ -155,19 +154,18 @@ module Wrapper (
 		.addr(memAddr[11:0]), 
 		.dataIn(memDataIn), 
 		.dataOut(memDataOut));
-	
 
 	//are other signals needed?
 	//what is audioOut, how many bits?
 	//wire[15:0] audioOut; //wire or reg?? --> don't need, specified in constraints file
-//	AudioController audio(
-//	   .clk(clock), //should this be system clock at 100 mHz???
-//		.audioOutput(audioOut),
-//		//.psclk(clock_ps2)  //try assigning main clock to ps_2 (may need to generate separate clock wizard)
-//		.psclk(ps2_clk),
-//		.psdata(ps2_data),
-//		.reset(reset)
-//	);
+	AudioController audio(
+	   .clk(clk_100mhz), //should this be system clock at 100 mHz???
+		.audioOutput(audioOut),
+		//.psclk(clock_ps2)  //try assigning main clock to ps_2 (may need to generate separate clock wizard)
+		.psclk(ps2_clk),
+		.psdata(ps2_data),
+		.reset(reset)
+	);
 		
 	
 
