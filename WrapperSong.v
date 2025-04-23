@@ -135,7 +135,7 @@ module Wrapper (
 						
 	// Processor Memory (RAM)
 	
-	 RAM #(.MEMFILE("songs2.mem")) ProcMem(
+	 RAM #(.MEMFILE("songs.mem")) ProcMem(
         .clk(clock), 
         .wEn(mwe), 
         .addr(memAddr[11:0]), 
