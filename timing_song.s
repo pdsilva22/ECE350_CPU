@@ -1,9 +1,17 @@
 main:
 	jal read_switches
     add $a0, $v0, $0
-    addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
+    nop
+    nop
+    nop
+    nop
 	jal led  #turn on LED corresponding to switch
-	#based on value in s0, determine which song to play
+    j main
+    addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
+    nop
+    nop
+    nop
+    nop
     blt $a0, $s5, main    #keep looping main if no input switches flipped
 	jal play_song
     j end
