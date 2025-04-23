@@ -6,7 +6,6 @@ main:
     nop
     sll $a0, $s6, 15
     jal led
-    j end
 	jal read_switches
     add $a0, $v0, $0
     addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
@@ -14,6 +13,7 @@ main:
 	#based on value in s0, determine which song to play
     blt $a0, $s5, main    #keep looping main if no input switches flipped
 	jal play_song
+    j end
 	j main
 
 led:
@@ -34,6 +34,11 @@ read_switches:
 
 play_song:
     # Calculate base address of selected song
+    addi $a0, $a0, -1 
+    nop
+    nop
+    nop
+    nop
     sll $t1, $a0, 8         # $t1 = $a0 * 256
     nop
 	nop
@@ -41,9 +46,9 @@ play_song:
 	nop
     add $t2, $t1, $0        # $t2 = base address
     addi $t3, $0, 0         # $t3 = loop index (offset)
+    addi $t4, $0, 256       # $t4 = 256 (loop limit)
 
 play_loop:
-    addi $t4, $0, 256       # $t4 = 256 (loop limit)
     nop
     nop
     nop
@@ -66,7 +71,7 @@ continue_loop:
     # Nested loop to repeat the sw command 2000 times for the current sample
     addi $t6, $0, 2000       # $t6 = 2000 (number of repetitions)
 repeat_loop:
-    sw $t0, 4097($0)         # Write the sample value to audioOut (4097)
+    sw $t0, 4098($0)         # Write the sample value to audioOut (4097)
     nop
     nop
     nop
