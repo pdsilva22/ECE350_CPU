@@ -74,7 +74,12 @@ continue_loop:
     lw $t0, 0($t5)          # load sample
 
     # Nested loop to repeat the sw command 2000 times for the current sample
-    addi $t6, $0, 2000000       # $t6 = 2000 (number of repetitions)
+    addi $t6, $0, 20000       # $t6 = 2000 (number of repetitions)
+    nop
+    nop
+    nop
+    nop
+    sll $t6, $t6, 10
     nop
     nop
     nop
