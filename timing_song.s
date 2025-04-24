@@ -6,27 +6,21 @@ main:
     nop
     nop
 	jal led  #turn on LED corresponding to switch
-    
-    addi $s5, $0, 1     #sets s5 to hold one (use this to avoid playing song if no switches on)
+    addi $s5, $0, 1     #sets s5 to hold one (use this in blt check to avoid playing song if no switches on)
     nop
     nop
     nop
     nop
-    blt $a0, $s5, main    #keep looping main if no input switches flipped
+    blt $a0, $s5, main    #continuously check switches for input to determine which song to play from memory 
     nop
     nop
     nop
     nop
 	jal play_song
-    j end
 	j main    #when we j main, need to somehow reset switches or else will immediately start song 1 again
 
 led:
 	sw $a0, 4097($0)
-	nop
-	nop
-	nop
-	nop
 	jr $ra
 
 read_switches:
@@ -39,12 +33,12 @@ read_switches:
 
 play_song:
     # Calculate base address of selected song
-    addi $a0, $a0, -1 #will not work for song 3 (4-1 = 3, should be 2)
+    addi $a0, $a0, -1 #subtract 1 to get correct offset in memory (song 1 starts at index 0, song 2 at index 257, etc)
     nop
     nop
     nop
     nop
-    sll $t1, $a0, 8         # $t1 = $a0 * 256
+    sll $t1, $a0, 8         # $t1 = $a0 * 256 (each song in memory is 256 lines, this gives us base address in memory to start reading from)
     nop
 	nop
 	nop
@@ -71,7 +65,7 @@ continue_loop:
 	nop
 	nop
 	nop
-    lw $t0, 0($t5)          # load sample
+    lw $t0, 0($t5)          # load sample from memory 
     nop
     nop
     nop
@@ -81,21 +75,22 @@ continue_loop:
     nop
     nop
     nop
-    jal led
+    jal led           #display duty cycle value on leds
 
-    # Nested loop to repeat the sw command 2000 times for the current sample
+    # Nested loop to repeat the sw command many times for the current sample
+    #Done to ensure each note is played for a sufficient amount of time 
     addi $t6, $0, 20000       # $t6 = 2000 (number of repetitions)
     nop
     nop
     nop
     nop
-    sll $t6, $t6, 10
+    sll $t6, $t6, 5       #increase loop counter
     nop
     nop
     nop
 
 repeat_loop:
-    sw $t0, 4098($0)         # Write the sample value to audioOut (4097)
+    sw $t0, 4097($0)         # Write the sample value to audioOut (4097)
     nop
     nop
     nop
@@ -105,7 +100,7 @@ repeat_loop:
     nop
     nop
     nop
-    bne $t6, $0, repeat_loop # If $t6 != 0, repeat the write
+    bne $t6, $0, repeat_loop # If $t6 != 0, repeat the sw to set pwm signal
     nop
 	nop
 	nop
@@ -120,6 +115,3 @@ repeat_loop:
 play_done:
     jr $ra                    # Return from play_song
    
-
-end:
-    j end
